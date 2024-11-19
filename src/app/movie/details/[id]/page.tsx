@@ -5,7 +5,7 @@ import { useParams } from 'next/navigation'
 import React from 'react'
 import styles from './index.module.scss'
 import Container from '@/components/container'
-import { Rate } from 'antd'
+import Image from 'next/image'
 
 const MovieDetail = () => {
     const { id }: { id: string } = useParams()
@@ -25,24 +25,31 @@ const MovieDetail = () => {
 
     return (
         <Container>
+            <div className={styles.centered}>
             <div className={styles.movieDetailContainer}>
                 <div className={styles.posterContainer}>
-                    <img
+                    <Image
+                    width={300}
+                    height={400}
                         src={movieDetail.Poster}
                         alt={movieDetail.Title}
                         className={styles.moviePoster}
                     />
                 </div>
                 <div className={styles.detailsContainer}>
-                    <h1>
+                <div className={styles.detailsContainer}>
+                    <h1 >
                         {movieDetail.Title} ({movieDetail.Year})
                     </h1>
-                    <p>{movieDetail.Plot}</p>
-                    <div>
+                    <p  className={`mt-1 ${styles.description}`}>{movieDetail.Plot}</p>
+                    <div className='mt-1'>
                         <strong>Rating:</strong> {movieDetail.imdbRating} / 10
                     </div>
                 </div>
+                </div>
             </div>
+            </div>
+          
         </Container>
     )
 }

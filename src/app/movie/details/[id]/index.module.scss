@@ -1,21 +1,33 @@
+@media (min-width: 641px) {
+    .movieDetailContainer {
+        gap: 0 2rem;
+        margin-top: 20px;
+        display: flex;
+        max-width: 700px;
+    }
+}
 .movieDetailContainer {
     gap: 0 2rem;
     margin-top: 20px;
+    max-width: 700px;
 }
 .posterContainer {
     display: flex;
     justify-content: center;
 }
+.description {
+    font-size: 20px;
+}
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
 .detailsContainer {
     margin-top: 1rem;
+    text-align: center;
 }
 .moviePoster {
     border-radius: 1rem;
-}
-@media (min-width: 768px) {
-    .movieDetailContainer {
-        display: flex;
-        gap: 0 2rem;
-        margin-top: 20px;
-    }
 }
