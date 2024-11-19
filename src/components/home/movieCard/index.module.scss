@@ -1,0 +1,67 @@
+.movie-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+
+    margin-bottom: 10px;
+    cursor: pointer;
+
+    &__image {
+        border-bottom: 1px solid #ddd;
+        width: 100% !important;
+        height: 100%;
+        object-fit: cover;
+        height: 450px;
+    }
+
+    &__info {
+        padding: 10px;
+    }
+
+    &__title {
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    &__year {
+        font-size: 14px;
+        color: #777;
+    }
+}
+// .movieList {
+//   display: grid;
+//   grid-template-columns: repeat(4, 1fr); /* Creates 3 equal columns */
+//   // gap: 20px;
+// }
+
+// @media (max-width: 575px) { /* XS screens (extra-small) */
+//   .movieList {
+//     grid-template-columns: repeat(2, 1fr); /* One column for extra-small screens */
+//   }
+// }
+
+// @media (min-width: 576px) and (max-width: 767px) { /* SM screens (small) */
+//   .movieList {
+//     grid-template-columns: repeat(2, 1fr); /* Two columns for small screens */
+//   }
+// }
+
+// @media (min-width: 768px) { /* MD screens (medium) */
+//   .movieList {
+//     grid-template-columns: repeat(3, 1fr); /* Three columns for medium screens */
+//   }
+// }
+
+// @media (min-width: 1024px) { /* LG screens (large) */
+//   .movieList {
+//     grid-template-columns: repeat(3, 1fr); /* Three columns for large screens */
+//   }
+// }
+
+// @media (min-width: 1280px) { /* XL screens (extra-large) */
+//   .movieList {
+//     grid-template-columns: repeat(4, 1fr); /* Four columns for extra-large screens */
+//   }
+// }

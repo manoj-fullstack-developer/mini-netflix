@@ -1,0 +1,21 @@
+.movieDetailContainer {
+    gap: 0 2rem;
+    margin-top: 20px;
+}
+.posterContainer {
+    display: flex;
+    justify-content: center;
+}
+.detailsContainer {
+    margin-top: 1rem;
+}
+.moviePoster {
+    border-radius: 1rem;
+}
+@media (min-width: 768px) {
+    .movieDetailContainer {
+        display: flex;
+        gap: 0 2rem;
+        margin-top: 20px;
+    }
+}

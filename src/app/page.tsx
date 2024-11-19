@@ -1,95 +1,52 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client'
+import Loader from '../components/loader'
+import MovieCard from '../components/home/movieCard'
+import styles from '../components/home/movieCard/index.module.scss'
+import Container from '../components/container'
+import Link from 'next/link'
+import useMovies from '../hooks/useMovies'
+import { Col, Row } from 'antd'
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    const { moviesList, loader, error } = useMovies()
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    if (loader) {
+        return <Loader />
+    }
+
+    if (error) {
+        return <p>Unable to fetch details because of an unknown error.</p>
+    }
+
+    if (!moviesList) {
+        return <p className={styles.noData}>No movie list found</p>
+    }
+
+    return (
+        <Container>
+            <h1 className="mt-2">Action Movies</h1>
+            <div className={styles.movieList}>
+                <Row gutter={20}>
+                    {moviesList.Search.map((data, i) => (
+                        <Col
+                            className="mt-3"
+                            xs={24}
+                            sm={12}
+                            lg={8}
+                            xl={6}
+                            key={data.imdbID}
+                        >
+                            <Link href={`/movie/details/${data.imdbID}`}>
+                                <MovieCard
+                                    Poster={data.Poster}
+                                    Title={data.Title}
+                                    Year={data.Year}
+                                />
+                            </Link>
+                        </Col>
+                    ))}
+                </Row>
+            </div>
+        </Container>
+    )
 }

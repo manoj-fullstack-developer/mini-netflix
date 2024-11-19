@@ -1,0 +1,11 @@
+@use './variables' as vars;
+@use './utils' as utils;
+
+body {
+    font-family: vars.$font-family;
+    background-color: #f0f0f0;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
