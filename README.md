@@ -45,6 +45,9 @@ Before starting the server, make sure to set up the environment variables. Copy 
 
 `cp .env.example .env`
 
+##Live Demo
+You can check out the live version of the app hosted on Vercel here: [Mini Netflix App](https://mini-netflix-nine.vercel.app/)
+
 
 
 ## 🚀 About Me
