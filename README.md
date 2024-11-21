@@ -41,9 +41,9 @@ Start the server
 
 ## Environment Variables
 
-Before starting the server, make sure to set up the environment variables. Copy the .env.example file and create a new .env file in the root directory:
+Before starting the server, make sure to set up the environment variables. Copy the .env.example file and create a new .env file in the root directory. Use given key for testing:
 
-`cp .env.example .env`
+`NEXT_PUBLIC_OMDB_API_KEY=9ddcba50`
 
 ##Live Demo
 You can check out the live version of the app hosted on Vercel here: [Mini Netflix App](https://mini-netflix-nine.vercel.app/)
